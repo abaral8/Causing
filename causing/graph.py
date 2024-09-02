@@ -67,10 +67,10 @@ def save_graph(path: Path, graph_dot):
     #     file.write(graph_dot)
 
     svg_code = subprocess.check_output(
-        [DOT_COMMAND, "-Tsvg", "-Gdpi=96"], input=graph_dot, encoding="utf-8"
+        [DOT_COMMAND, "-Tsvg", "-Gdpi=300"], input=graph_dot, encoding="utf-8"
     )
-    if dot_version()[0] < 3:
-        svg_code = fix_svg_scale(svg_code)
+    # if dot_version()[0] < 3:
+    #     svg_code = fix_svg_scale(svg_code)
     with open(path, "w") as f:
         f.write(svg_code)
 
